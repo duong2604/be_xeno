@@ -9,7 +9,7 @@ datasource db {
 }
 
 model customers {
-  customerNumber         Int        @id
+  customerNumber         Int        @default(autoincrement()) @id
   customerName           String     @db.VarChar(50)
   contactLastName        String     @db.VarChar(50)
   contactFirstName       String     @db.VarChar(50)
@@ -30,7 +30,7 @@ model customers {
 }
 
 model employees {
-  employeeNumber  Int         @id
+  employeeNumber  Int         @default(autoincrement()) @id
   lastName        String      @db.VarChar(50)
   firstName       String      @db.VarChar(50)
   extension       String      @db.VarChar(10)
@@ -48,7 +48,7 @@ model employees {
 }
 
 model offices {
-  officeCode   String      @id @db.VarChar(10)
+  officeCode   String      @id @db.VarChar(10) @default(ulid())
   city         String      @db.VarChar(50)
   phone        String      @db.VarChar(50)
   addressLine1 String      @db.VarChar(50)
@@ -106,7 +106,7 @@ model productlines {
 }
 
 model products {
-  productCode        String         @id @db.VarChar(15)
+  productCode        String         @id @db.VarChar(15) @default(ulid())
   productName        String         @db.VarChar(70)
   productLine        String         @db.VarChar(50)
   productScale       String         @db.VarChar(10)
